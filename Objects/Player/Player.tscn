@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Textures/Knight/knight.png" type="Texture" id=1]
+[ext_resource path="res://Code/Game/Gameplay/Player.cs" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 16 )
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 2 )
+CollisionShapePath = NodePath("CollisionShape2D")
+
+[node name="Knight" type="Sprite" parent="."]
+scale = Vector2( 0.34, 0.4 )
+texture = ExtResource( 1 )
+offset = Vector2( 47, 40 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 16, 16 )
+shape = SubResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}

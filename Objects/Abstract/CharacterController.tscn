@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Code/Game/Controllers/CharacterController.cs" type="Script" id=1]
+[ext_resource path="res://Code/Game/Controllers/PlayerInputController.cs" type="Script" id=2]
+[ext_resource path="res://Code/Game/Controllers/AIInputController.cs" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 178.55
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 8.06226
+
+[node name="CharacterController" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+AIInputPath = NodePath("AIInput")
+PlayerInputPath = NodePath("PlayerInput")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="SeeZone" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SeeZone"]
+shape = SubResource( 1 )
+
+[node name="MeZone" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeZone"]
+shape = SubResource( 3 )
+
+[node name="PlayerInput" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="AIInput" type="Node2D" parent="."]
+script = ExtResource( 3 )
+DetectionAreaPath = NodePath("../SeeZone")

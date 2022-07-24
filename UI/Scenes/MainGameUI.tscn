@@ -1,0 +1,128 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://UI/Themes/DefaultTheme.tres" type="Theme" id=1]
+[ext_resource path="res://UI/Scenes/DiePanel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Textures/Dice/Die_Red1.tres" type="Texture" id=3]
+[ext_resource path="res://Textures/Dice/Die_Yellow2.tres" type="Texture" id=4]
+[ext_resource path="res://Code/Game/Gameplay/GameUi.cs" type="Script" id=5]
+[ext_resource path="res://Textures/Dice/Die_Blue2.tres" type="Texture" id=6]
+[ext_resource path="res://Textures/Dice/Die_Red6.tres" type="Texture" id=7]
+[ext_resource path="res://Textures/Dice/Die_Red2.tres" type="Texture" id=8]
+[ext_resource path="res://Textures/Dice/Die_Red5.tres" type="Texture" id=9]
+[ext_resource path="res://Textures/Dice/Die_Red3.tres" type="Texture" id=10]
+[ext_resource path="res://Textures/Dice/Die_Red4.tres" type="Texture" id=11]
+[ext_resource path="res://Textures/Dice/Die_Blue1.tres" type="Texture" id=12]
+[ext_resource path="res://Textures/Dice/Die_Blue3.tres" type="Texture" id=13]
+[ext_resource path="res://Textures/Dice/Die_Yellow3.tres" type="Texture" id=14]
+[ext_resource path="res://Textures/Dice/Die_Blue4.tres" type="Texture" id=15]
+[ext_resource path="res://Textures/Dice/Die_Yellow1.tres" type="Texture" id=16]
+[ext_resource path="res://Textures/Dice/Die_Yellow4.tres" type="Texture" id=17]
+[ext_resource path="res://Textures/Dice/Die_Yellow5.tres" type="Texture" id=18]
+[ext_resource path="res://Textures/Dice/Die_Yellow6.tres" type="Texture" id=19]
+[ext_resource path="res://Textures/Dice/Die_Blue6.tres" type="Texture" id=20]
+[ext_resource path="res://Textures/Dice/Die_Blue5.tres" type="Texture" id=21]
+[ext_resource path="res://Textures/Dice/Die_Roll.tres" type="Texture" id=22]
+[ext_resource path="res://Textures/Dice/NoneIcon.png" type="Texture" id=23]
+
+[node name="MainGameUI" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 0
+theme = ExtResource( 1 )
+custom_constants/separation = 0
+script = ExtResource( 5 )
+DieControlPaths = [ NodePath("Panel/VBoxContainer/VBoxContainer/DieRow_1/DieControl"), NodePath("Panel/VBoxContainer/VBoxContainer/DieRow_2/DieControl"), NodePath("Panel/VBoxContainer/VBoxContainer/DieRow_3/DieControl") ]
+RerollButtonPath = NodePath("Panel/VBoxContainer/RerollButton")
+IconRoll = ExtResource( 22 )
+IconNone = ExtResource( 23 )
+IconRed_1 = ExtResource( 3 )
+IconRed_2 = ExtResource( 8 )
+IconRed_3 = ExtResource( 10 )
+IconRed_4 = ExtResource( 11 )
+IconRed_5 = ExtResource( 9 )
+IconRed_6 = ExtResource( 7 )
+IconBlue_1 = ExtResource( 12 )
+IconBlue_2 = ExtResource( 6 )
+IconBlue_3 = ExtResource( 13 )
+IconBlue_4 = ExtResource( 15 )
+IconBlue_5 = ExtResource( 21 )
+IconBlue_6 = ExtResource( 20 )
+IconYellow_1 = ExtResource( 16 )
+IconYellow_2 = ExtResource( 4 )
+IconYellow_3 = ExtResource( 14 )
+IconYellow_4 = ExtResource( 17 )
+IconYellow_5 = ExtResource( 18 )
+IconYellow_6 = ExtResource( 19 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 608.0
+margin_bottom = 448.0
+rect_min_size = Vector2( 140, 0 )
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = 12.0
+margin_right = -12.0
+margin_bottom = -12.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer"]
+margin_top = 151.0
+margin_right = 584.0
+margin_bottom = 231.0
+alignment = 1
+
+[node name="DieRow_1" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainer"]
+margin_right = 584.0
+margin_bottom = 24.0
+
+[node name="DieControl" parent="Panel/VBoxContainer/VBoxContainer/DieRow_1" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 70.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 50, 24 )
+
+[node name="DieRow_2" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainer"]
+margin_top = 28.0
+margin_right = 584.0
+margin_bottom = 52.0
+
+[node name="DieControl" parent="Panel/VBoxContainer/VBoxContainer/DieRow_2" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 100.0
+margin_bottom = 24.0
+
+[node name="DieRow_3" type="HBoxContainer" parent="Panel/VBoxContainer/VBoxContainer"]
+margin_top = 56.0
+margin_right = 584.0
+margin_bottom = 80.0
+
+[node name="DieControl" parent="Panel/VBoxContainer/VBoxContainer/DieRow_3" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 100.0
+margin_bottom = 24.0
+
+[node name="RerollButton" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 251.0
+margin_right = 584.0
+margin_bottom = 273.0
+text = "Reroll"
